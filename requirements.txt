@@ -1,5 +1,6 @@
 groq
 chromadb
+qdrant-client
 pymupdf
 sentence-transformers
 tiktoken
