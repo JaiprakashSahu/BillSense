@@ -1,10 +1,10 @@
-import chromadb
 from src.embed import get_embedding
+from src.db import get_chroma_client
 
 
 def retrieve_relevant_chunks(query: str, bill_name: str, top_k: int = 5, db_path: str = "./chroma_db") -> list[dict]:
-    """Retrieve the most relevant chunks for a query from Chroma."""
-    client = chromadb.PersistentClient(path=db_path)
+    """Retrieve the most relevant chunks for a query from Chroma (local or remote)."""
+    client = get_chroma_client()
 
     # Sanitize collection name to match what was stored
     collection_name = "bill_" + bill_name.replace(" ", "_").replace(",", "").replace("(", "").replace(")", "")

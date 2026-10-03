@@ -13,27 +13,17 @@ interface QueryFormProps {
   onSubmit: (query: string, topK: number) => void;
   isLoading: boolean;
   hasAnswer: boolean;
+  exampleQueries?: string[];
 }
 
-const EXAMPLE_QUERIES = [
-  "What are the penalties for data breaches?",
-  "What rights do citizens have under this bill?",
-  "Who is the Data Protection Authority?",
-  "What are the exceptions for government agencies?",
-  "How is consent defined and obtained?",
-  "What is the punishment for murder?",
-];
-
 export function QueryForm({
-  bills,
-  selectedBill,
-  onBillChange,
   onSubmit,
   isLoading,
   hasAnswer,
+  exampleQueries = [],
 }: QueryFormProps) {
   const [query, setQuery] = useState("");
-  const [topK, setTopK] = useState(5);
+  const [topK, setTopK] = useState(3);
   const [showTopK, setShowTopK] = useState(false);
 
   const handleSubmit = (e: FormEvent) => {
@@ -49,23 +39,6 @@ export function QueryForm({
 
   return (
     <div>
-      {/* Bill selector */}
-      <div className="flex items-center justify-center gap-2 mb-6 flex-wrap">
-        {bills.map((bill) => (
-          <button
-            key={bill.id}
-            onClick={() => onBillChange(bill.id)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
-              selectedBill === bill.id
-                ? "bg-gray-900 text-white shadow-md"
-                : "bg-white text-gray-600 border border-gray-200 hover:border-gray-400 hover:text-gray-900"
-            }`}
-          >
-            {bill.name}
-          </button>
-        ))}
-      </div>
-
       {/* Search form */}
       <form onSubmit={handleSubmit}>
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md focus-within:shadow-md focus-within:border-gray-300 transition-all duration-200">
@@ -87,7 +60,7 @@ export function QueryForm({
                 </button>
                 {showTopK && (
                   <div className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-10">
-                    {[3, 5, 8, 10].map((k) => (
+                    {[2, 3, 5].map((k) => (
                       <button
                         key={k}
                         type="button"
@@ -139,7 +112,7 @@ export function QueryForm({
       {/* Example queries */}
       {!hasAnswer && (
         <div className="mt-4 flex flex-wrap gap-2 justify-center fade-in">
-          {EXAMPLE_QUERIES.map((q) => (
+          {exampleQueries.map((q) => (
             <button
               key={q}
               onClick={() => handleExample(q)}

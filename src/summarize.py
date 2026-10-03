@@ -182,6 +182,12 @@ def summarize_all_bills(chunks_dir: str, summaries_dir: str, rate_delay: float =
         bill_name = fname.replace('_chunks.json', '')
         chunks_path = os.path.join(chunks_dir, fname)
 
+        # Skip bills that already have a final summary
+        summary_md_path = os.path.join(summaries_dir, f"{bill_name}.md")
+        if os.path.exists(summary_md_path):
+            print(f"\n  Skipping: {bill_name} (summary already exists)")
+            continue
+
         with open(chunks_path, 'r') as f:
             chunks = json.load(f)
 

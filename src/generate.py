@@ -26,9 +26,9 @@ Answer:"""
 
 def answer_query(query: str, bill_name: str) -> dict:
     """Answer a query about a bill using RAG retrieval + LLM generation."""
-    chunks = retrieve_relevant_chunks(query, bill_name)
+    chunks = retrieve_relevant_chunks(query, bill_name, top_k=3)
     context = "\n\n---\n\n".join(
-        f"[Section: {c['section_header']}]\n{c['content']}"
+        f"[Section: {c['section_header']}]\n{c['content'][:800]}"
         for c in chunks
     )
 

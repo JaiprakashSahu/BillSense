@@ -1,8 +1,8 @@
 import os
 import json
-import chromadb
 from tqdm import tqdm
 from sentence_transformers import SentenceTransformer
+from src.db import get_chroma_client
 
 # Local embedding model — no API key needed
 _embedding_model = None
@@ -23,8 +23,8 @@ def get_embedding(text: str) -> list[float]:
 
 
 def build_vector_store(chunks: list[dict], bill_name: str, db_path: str = "./chroma_db"):
-    """Embed chunks and store them in Chroma."""
-    client = chromadb.PersistentClient(path=db_path)
+    """Embed chunks and store them in Chroma (local or remote)."""
+    client = get_chroma_client()
 
     # Sanitize collection name
     collection_name = "bill_" + bill_name.replace(" ", "_").replace(",", "").replace("(", "").replace(")", "")
@@ -82,11 +82,5 @@ def embed_all_bills(chunks_dir: str, db_path: str = "./chroma_db") -> dict[str, 
         collection_name = build_vector_store(chunks, bill_name, db_path)
         bill_collections[bill_name] = collection_name
         print(f"    → Stored in collection: {collection_name}")
-
-    # Save collection mapping
-    mapping_path = os.path.join(db_path, "bill_collections.json")
-    os.makedirs(db_path, exist_ok=True)
-    with open(mapping_path, 'w') as f:
-        json.dump(bill_collections, f, indent=2)
 
     return bill_collections

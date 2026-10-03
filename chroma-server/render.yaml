@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: billsense-chroma
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8000
+    disk:
+      name: chroma-data
+      mountPath: /chroma/data
+      sizeGB: 1

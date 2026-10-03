@@ -30,28 +30,56 @@ CHUNKS_DIR = os.path.join(BASE_DIR, "data", "chunks")
 CHROMA_DIR = os.path.join(BASE_DIR, "chroma_db")
 
 
-def get_available_bills() -> list[dict]:
-    """Get list of bills that have been processed."""
-    bills = []
-    if not os.path.exists(SUMMARIES_DIR):
-        return bills
+def extract_year(bill_name: str) -> str:
+    """Extract year from bill name like 'Personal_Data_Protection_Bill_2019'."""
+    import re
+    match = re.search(r'(\d{4})', bill_name)
+    return match.group(1) if match else "Unknown"
 
-    for fname in sorted(os.listdir(SUMMARIES_DIR)):
-        if fname.endswith('.md'):
-            bill_name = fname.replace('.md', '')
-            display_name = bill_name.replace('_', ' ')
-            bills.append({
-                'id': bill_name,
-                'name': display_name,
-                'has_summary': True,
-            })
+
+def get_available_bills() -> list[dict]:
+    """Get list of bills from chunks dir (embedded = queryable), with summary status."""
+    bills = []
+    seen = set()
+
+    # Scan chunks dir for all processed bills
+    if os.path.exists(CHUNKS_DIR):
+        for fname in sorted(os.listdir(CHUNKS_DIR)):
+            if fname.endswith('_chunks.json'):
+                bill_name = fname.replace('_chunks.json', '')
+                if bill_name in seen:
+                    continue
+                seen.add(bill_name)
+                display_name = bill_name.replace('_', ' ')
+                year = extract_year(bill_name)
+                summary_path = os.path.join(SUMMARIES_DIR, f"{bill_name}.md")
+                bills.append({
+                    'id': bill_name,
+                    'name': display_name,
+                    'year': year,
+                    'has_summary': os.path.exists(summary_path),
+                })
+
     return bills
+
+
+def get_bills_by_year() -> dict:
+    """Group available bills by year."""
+    bills = get_available_bills()
+    by_year = {}
+    for bill in bills:
+        year = bill['year']
+        if year not in by_year:
+            by_year[year] = []
+        by_year[year].append(bill)
+    # Sort years descending (newest first)
+    return dict(sorted(by_year.items(), reverse=True))
 
 
 class QueryRequest(BaseModel):
     query: str
     bill_id: str
-    top_k: int = 5
+    top_k: int = 3
 
 
 @app.get("/api/health")
@@ -61,8 +89,11 @@ def health():
 
 @app.get("/api/bills")
 def list_bills():
-    """List all available bills."""
-    return {"bills": get_available_bills()}
+    """List all available bills grouped by year."""
+    return {
+        "bills": get_available_bills(),
+        "by_year": get_bills_by_year(),
+    }
 
 
 @app.get("/api/bills/{bill_id}/summary")
@@ -131,7 +162,7 @@ async def stream_query(req: QueryRequest):
             from src.llm import get_client
 
             context = "\n\n---\n\n".join(
-                f"[Section: {c['section_header']}]\n{c['content']}"
+                f"[Section: {c['section_header']}]\n{c['content'][:800]}"
                 for c in chunks
             )
 
