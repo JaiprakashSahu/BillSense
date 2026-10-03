@@ -3,10 +3,33 @@ import json
 import re
 
 
+# Filler patterns to skip (TOC entries, page markers, blank headers)
+FILLER_PATTERNS = re.compile(
+    r'^(=== PAGE \d+ ===\s*$'
+    r'|TABLE OF CONTENTS'
+    r'|ARRANGEMENT OF CLAUSES'
+    r'|\s*——+\s*$'
+    r'|\s*\d+\s*$'           # Just a page number
+    r'|\s*$)',
+    re.MULTILINE | re.IGNORECASE
+)
+
+
+def is_filler_chunk(chunk: dict) -> bool:
+    """Check if a chunk is just filler (TOC, page markers, etc.)."""
+    content = chunk['content'].strip()
+    # Too short to be meaningful
+    if chunk['word_count'] < 15:
+        return True
+    # Mostly page markers or dashes
+    cleaned = FILLER_PATTERNS.sub('', content).strip()
+    if len(cleaned) < 30:
+        return True
+    return False
+
+
 def chunk_bill(text: str, bill_name: str) -> list[dict]:
     """Split bill text into section-aware chunks, preserving section headers."""
-    # Pattern matches Indian bill structure:
-    # "CHAPTER I", "CHAPTER IV", "1. Short title", "42. Penalties", "Section 5"
     section_pattern = re.compile(
         r'((?:CHAPTER|Chapter)\s+[IVXivx\d]+[.\s]*[^\n]*'
         r'|\d+\.\s+[A-Z][^\n]*'
@@ -16,12 +39,10 @@ def chunk_bill(text: str, bill_name: str) -> list[dict]:
         re.MULTILINE
     )
 
-    # Find all section boundaries
     matches = list(section_pattern.finditer(text))
     chunks = []
 
     if not matches:
-        # No sections found — treat entire text as one chunk
         chunks.append({
             'chunk_id': 0,
             'section_header': 'Full Text',
@@ -50,12 +71,11 @@ def chunk_bill(text: str, bill_name: str) -> list[dict]:
             'word_count': len(section_text.split()),
         })
 
-    # Handle oversized chunks
+    # Split oversized chunks
     final_chunks = []
     for chunk in chunks:
         final_chunks.extend(split_oversized_chunk(chunk))
 
-    # Reassign IDs
     for i, chunk in enumerate(final_chunks):
         chunk['chunk_id'] = i
 
@@ -98,7 +118,7 @@ def split_oversized_chunk(chunk: dict, max_words: int = 3000) -> list[dict]:
     return sub_chunks
 
 
-def merge_small_chunks(chunks: list[dict], min_words: int = 200) -> list[dict]:
+def merge_small_chunks(chunks: list[dict], min_words: int = 500) -> list[dict]:
     """Merge consecutive small chunks to reduce API calls while keeping context."""
     if not chunks:
         return chunks
@@ -107,7 +127,6 @@ def merge_small_chunks(chunks: list[dict], min_words: int = 200) -> list[dict]:
     current = dict(chunks[0])
 
     for chunk in chunks[1:]:
-        # Merge if current chunk is small
         if current['word_count'] < min_words:
             current['content'] += "\n\n" + chunk['content']
             current['section_header'] += " | " + chunk.get('section_header', '')
@@ -119,7 +138,6 @@ def merge_small_chunks(chunks: list[dict], min_words: int = 200) -> list[dict]:
 
     merged.append(current)
 
-    # Reassign IDs
     for i, chunk in enumerate(merged):
         chunk['chunk_id'] = i
 
@@ -144,15 +162,21 @@ def chunk_all_bills(extracted_dir: str, chunks_dir: str) -> dict[str, list[dict]
         print(f"  Chunking: {bill_name}")
         chunks = chunk_bill(text, bill_name)
         raw_count = len(chunks)
-        chunks = merge_small_chunks(chunks, min_words=200)
-        print(f"    Raw chunks: {raw_count} → Merged: {len(chunks)}")
+
+        # Filter out filler chunks
+        chunks = [c for c in chunks if not is_filler_chunk(c)]
+        filtered_count = len(chunks)
+
+        # Merge small chunks aggressively
+        chunks = merge_small_chunks(chunks, min_words=500)
+        print(f"    Raw: {raw_count} → Filtered: {filtered_count} → Merged: {len(chunks)}")
         all_chunks[bill_name] = chunks
 
-        # Save chunks
         out_path = os.path.join(chunks_dir, f"{bill_name}_chunks.json")
         with open(out_path, 'w') as f:
             json.dump(chunks, f, indent=2)
 
-        print(f"    → {len(chunks)} chunks (avg {sum(c['word_count'] for c in chunks) // max(len(chunks), 1)} words/chunk)")
+        avg_words = sum(c['word_count'] for c in chunks) // max(len(chunks), 1)
+        print(f"    → {len(chunks)} chunks (avg {avg_words} words/chunk)")
 
     return all_chunks

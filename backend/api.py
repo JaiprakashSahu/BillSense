@@ -128,8 +128,7 @@ async def stream_query(req: QueryRequest):
         yield f"data: {json.dumps({'type': 'progress', 'stage': 'generating', 'message': 'Generating answer...'})}\n\n"
 
         try:
-            from groq import Groq
-            client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+            from src.llm import get_client
 
             context = "\n\n---\n\n".join(
                 f"[Section: {c['section_header']}]\n{c['content']}"
@@ -153,8 +152,8 @@ Instructions:
 
 Answer:"""
 
-            stream = client.chat.completions.create(
-                model="qwen/qwen3.8-27b",
+            groq_client = get_client()
+            stream = groq_client.chat(
                 messages=[{"role": "user", "content": prompt}],
                 max_tokens=2048,
                 stream=True,

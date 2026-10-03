@@ -1,13 +1,16 @@
 import os
 import time
 import json
-from groq import Groq
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dotenv import load_dotenv
 from tqdm import tqdm
+from src.llm import get_client, MODEL
 
 load_dotenv()
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-MODEL = "qwen/qwen3.8-27b"
+
+# Max concurrent requests — Groq free tier allows 30 RPM,
+# so 5 concurrent with ~1s each ≈ 25-30 RPM (safe margin)
+MAX_WORKERS = 5
 
 SECTION_PROMPT = """You are a legal analyst specializing in Indian legislation.
 Summarize this section of an Indian bill in plain language.
@@ -24,6 +27,15 @@ Section Text:
 {content}
 
 Provide a clear, concise summary in Markdown format (3-8 bullet points). Do not include any thinking or reasoning tags - just provide the summary directly."""
+
+BATCH_PROMPT = """You are a legal analyst specializing in Indian legislation.
+Summarize each of the following sections of an Indian bill in plain language.
+For EACH section, provide 3-6 bullet points covering purpose, obligations, rights, penalties.
+Preserve section/clause numbers. Separate each section summary with "---".
+
+{sections}
+
+Do not include any thinking or reasoning tags - just provide the summaries directly."""
 
 BILL_PROMPT = """You are a legal analyst specializing in Indian legislation.
 Below are section-level summaries of an Indian bill called "{bill_name}".
@@ -46,8 +58,8 @@ Use section/clause numbers for reference where available. Do not include any thi
 
 def summarize_section(chunk: dict) -> str:
     """Generate a plain-language summary of a single bill section."""
-    response = client.chat.completions.create(
-        model=MODEL,
+    client = get_client()
+    response = client.chat(
         messages=[{
             "role": "user",
             "content": SECTION_PROMPT.format(
@@ -60,14 +72,76 @@ def summarize_section(chunk: dict) -> str:
     return response.choices[0].message.content
 
 
-def summarize_bill(section_summaries: list[str], bill_name: str) -> str:
-    """Generate a bill-level meta-summary from section summaries."""
-    combined = "\n\n---\n\n".join(section_summaries)
-    if len(combined) > 25000:
-        combined = combined[:25000] + "\n\n[... remaining sections truncated for length]"
+CONDENSE_PROMPT = """You are a legal analyst. Condense these section summaries of an Indian bill into a shorter combined summary, preserving all key points and section numbers.
 
-    response = client.chat.completions.create(
-        model=MODEL,
+{summaries}
+
+Provide a condensed version covering all major points. Do not include any thinking or reasoning tags."""
+
+
+def summarize_bill(section_summaries: list[str], bill_name: str) -> str:
+    """Generate a bill-level meta-summary from section summaries.
+
+    If the combined summaries exceed the input token limit (~5K words),
+    splits into chunks, condenses each, then generates the final summary.
+    """
+    combined = "\n\n---\n\n".join(section_summaries)
+    word_count = len(combined.split())
+    client = get_client()
+
+    # Groq free tier: 7K input tokens/min (~5K words).
+    # Condense in small batches of 3 sections to stay under limit.
+    import time
+
+    if word_count > 3000:
+        print(f"    Condensing {word_count} words in small batches...")
+        batch_size = 3
+        condensed_parts = []
+
+        for i in range(0, len(section_summaries), batch_size):
+            batch = section_summaries[i:i + batch_size]
+            batch_text = "\n\n---\n\n".join(batch)
+
+            # Skip if batch is too short
+            if len(batch_text.split()) < 20:
+                condensed_parts.append(batch_text)
+                continue
+
+            time.sleep(3)
+            response = client.chat(
+                messages=[{
+                    "role": "user",
+                    "content": CONDENSE_PROMPT.format(summaries=batch_text)
+                }],
+                max_tokens=512,
+            )
+            condensed_parts.append(response.choices[0].message.content)
+            print(f"      Batch {i//batch_size + 1}/{(len(section_summaries) + batch_size - 1)//batch_size} done")
+
+        combined = "\n\n---\n\n".join(condensed_parts)
+        print(f"    Condensed to {len(combined.split())} words")
+
+        # If still too large, do a second pass
+        if len(combined.split()) > 3000:
+            print(f"    Second condensing pass...")
+            parts2 = combined.split("\n\n---\n\n")
+            condensed2 = []
+            for i in range(0, len(parts2), 5):
+                batch = "\n\n".join(parts2[i:i + 5])
+                time.sleep(3)
+                response = client.chat(
+                    messages=[{
+                        "role": "user",
+                        "content": CONDENSE_PROMPT.format(summaries=batch)
+                    }],
+                    max_tokens=512,
+                )
+                condensed2.append(response.choices[0].message.content)
+            combined = "\n\n---\n\n".join(condensed2)
+            print(f"    Final: {len(combined.split())} words")
+
+    time.sleep(3)
+    response = client.chat(
         messages=[{
             "role": "user",
             "content": BILL_PROMPT.format(section_summaries=combined, bill_name=bill_name)
@@ -77,11 +151,27 @@ def summarize_bill(section_summaries: list[str], bill_name: str) -> str:
     return response.choices[0].message.content
 
 
-def summarize_all_bills(chunks_dir: str, summaries_dir: str, rate_delay: float = 2.0):
-    """Run summarization pipeline on all chunked bills.
+def _worker_summarize(idx, chunk):
+    """Worker function for concurrent summarization."""
+    try:
+        summary = summarize_section(chunk)
+        return (idx, {
+            'chunk_id': chunk['chunk_id'],
+            'section_header': chunk.get('section_header', ''),
+            'summary': summary,
+        }, None)
+    except Exception as e:
+        return (idx, None, str(e))
 
-    Args:
-        rate_delay: Seconds to wait between API calls (Groq free tier = 30 RPM).
+
+def summarize_all_bills(chunks_dir: str, summaries_dir: str, rate_delay: float = 0.5):
+    """Run optimized summarization pipeline on all chunked bills.
+
+    Optimizations:
+    - Concurrent API calls (5 workers)
+    - Batching short sections
+    - Filler chunk skipping
+    - Resumable progress saving
     """
     os.makedirs(summaries_dir, exist_ok=True)
 
@@ -95,62 +185,79 @@ def summarize_all_bills(chunks_dir: str, summaries_dir: str, rate_delay: float =
         with open(chunks_path, 'r') as f:
             chunks = json.load(f)
 
-        print(f"\n  Summarizing: {bill_name} ({len(chunks)} chunks)")
+        print(f"\n  Summarizing: {bill_name} ({len(chunks)} chunks, {MAX_WORKERS} workers)")
 
-        # Step 1: Section-level summaries
-        section_summaries = []
+        # Load saved progress
+        section_summaries = {}  # idx -> summary_dict
         section_summary_path = os.path.join(summaries_dir, f"{bill_name}_sections.json")
 
-        # Resume from saved progress if available
         if os.path.exists(section_summary_path):
             with open(section_summary_path, 'r') as f:
-                section_summaries = json.load(f)
-            print(f"    Resuming from chunk {len(section_summaries)}/{len(chunks)}")
+                saved = json.load(f)
+            # Convert list to dict keyed by index for easy lookup
+            for i, s in enumerate(saved):
+                section_summaries[i] = s
+            print(f"    Resuming: {len(section_summaries)}/{len(chunks)} already done")
 
-        for i in tqdm(range(len(section_summaries), len(chunks)),
-                      desc="    Sections", initial=len(section_summaries), total=len(chunks)):
-            chunk = chunks[i]
-            try:
-                summary = summarize_section(chunk)
-                section_summaries.append({
-                    'chunk_id': chunk['chunk_id'],
-                    'section_header': chunk.get('section_header', ''),
-                    'summary': summary,
-                })
-                # Save progress after each section
-                with open(section_summary_path, 'w') as f:
-                    json.dump(section_summaries, f, indent=2)
-                time.sleep(rate_delay)
-            except Exception as e:
-                print(f"\n    Error on chunk {i}: {e}")
-                print(f"    Saving progress and waiting 60s before retry...")
-                with open(section_summary_path, 'w') as f:
-                    json.dump(section_summaries, f, indent=2)
-                time.sleep(60)
-                try:
-                    summary = summarize_section(chunk)
-                    section_summaries.append({
-                        'chunk_id': chunk['chunk_id'],
-                        'section_header': chunk.get('section_header', ''),
-                        'summary': summary,
-                    })
+        # Find remaining chunks to process
+        remaining = [(i, chunks[i]) for i in range(len(chunks)) if i not in section_summaries]
+
+        if remaining:
+            pbar = tqdm(total=len(chunks), initial=len(section_summaries), desc="    Sections")
+
+            # Process in batches of MAX_WORKERS
+            with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+                batch_start = 0
+                while batch_start < len(remaining):
+                    batch = remaining[batch_start:batch_start + MAX_WORKERS]
+                    futures = {}
+
+                    for idx, chunk in batch:
+                        future = executor.submit(_worker_summarize, idx, chunk)
+                        futures[future] = idx
+                        time.sleep(rate_delay)  # Small stagger to avoid burst
+
+                    for future in as_completed(futures):
+                        idx, result, error = future.result()
+
+                        if error:
+                            print(f"\n    Error on chunk {idx}: {error}")
+                            # Retry once after delay
+                            time.sleep(10)
+                            try:
+                                _, result, error2 = _worker_summarize(idx, chunks[idx])
+                                if error2:
+                                    print(f"    Retry failed: {error2}. Skipping chunk {idx}.")
+                                    pbar.update(1)
+                                    continue
+                            except Exception:
+                                pbar.update(1)
+                                continue
+
+                        section_summaries[idx] = result
+                        pbar.update(1)
+
+                    # Save progress after each batch
+                    ordered = [section_summaries[i] for i in sorted(section_summaries.keys())]
                     with open(section_summary_path, 'w') as f:
-                        json.dump(section_summaries, f, indent=2)
-                except Exception as e2:
-                    print(f"    Retry failed: {e2}. Skipping chunk {i}.")
+                        json.dump(ordered, f, indent=2)
+
+                    batch_start += MAX_WORKERS
+
+            pbar.close()
 
         # Step 2: Bill-level meta-summary
         print(f"    Generating bill-level summary...")
-        summary_texts = [s['summary'] for s in section_summaries]
+        ordered = [section_summaries[i] for i in sorted(section_summaries.keys())]
+        summary_texts = [s['summary'] for s in ordered]
+
         try:
             bill_summary = summarize_bill(summary_texts, bill_name)
         except Exception as e:
-            print(f"    Error generating bill summary: {e}")
-            print(f"    Waiting 60s and retrying...")
-            time.sleep(60)
+            print(f"    Error: {e}. Waiting 30s and retrying...")
+            time.sleep(30)
             bill_summary = summarize_bill(summary_texts, bill_name)
 
-        # Save bill-level summary as markdown
         summary_md_path = os.path.join(summaries_dir, f"{bill_name}.md")
         with open(summary_md_path, 'w') as f:
             f.write(f"# Summary: {bill_name.replace('_', ' ')}\n\n")

@@ -1,11 +1,9 @@
 import os
-from groq import Groq
 from dotenv import load_dotenv
 from src.retrieve import retrieve_relevant_chunks
+from src.llm import get_client
 
 load_dotenv()
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-MODEL = "qwen/qwen3.8-27b"
 
 RAG_PROMPT = """You are a legal research assistant. Answer the user's question using ONLY the
 provided context from an Indian bill. Cite the section number for each claim.
@@ -34,8 +32,8 @@ def answer_query(query: str, bill_name: str) -> dict:
         for c in chunks
     )
 
-    response = client.chat.completions.create(
-        model=MODEL,
+    client = get_client()
+    response = client.chat(
         messages=[{
             "role": "user",
             "content": RAG_PROMPT.format(context=context, query=query)
