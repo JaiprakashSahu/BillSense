@@ -1,17 +1,19 @@
 import chromadb
-import google.generativeai as genai
+from src.embed import get_embedding
 
 
-def retrieve_relevant_chunks(query: str, bill_name: str, top_k: int = 5) -> list[dict]:
+def retrieve_relevant_chunks(query: str, bill_name: str, top_k: int = 5, db_path: str = "./chroma_db") -> list[dict]:
     """Retrieve the most relevant chunks for a query from Chroma."""
-    client = chromadb.PersistentClient(path="./chroma_db")
-    collection = client.get_collection(f"bill_{bill_name}")
+    client = chromadb.PersistentClient(path=db_path)
 
-    query_embedding = genai.embed_content(
-        model="models/embedding-001",
-        content=query,
-        task_type="retrieval_query"
-    )['embedding']
+    # Sanitize collection name to match what was stored
+    collection_name = "bill_" + bill_name.replace(" ", "_").replace(",", "").replace("(", "").replace(")", "")
+    if len(collection_name) > 63:
+        collection_name = collection_name[:63]
+
+    collection = client.get_collection(collection_name)
+
+    query_embedding = get_embedding(query)
 
     results = collection.query(
         query_embeddings=[query_embedding],
@@ -21,7 +23,8 @@ def retrieve_relevant_chunks(query: str, bill_name: str, top_k: int = 5) -> list
     return [
         {
             'content': doc,
-            'section_id': meta['section_id'],
+            'section_header': meta.get('section_header', ''),
+            'chunk_id': meta.get('chunk_id', ''),
             'distance': dist
         }
         for doc, meta, dist in zip(

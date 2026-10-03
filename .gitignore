@@ -24,3 +24,22 @@ Thumbs.db
 
 # Data (large PDFs - keep tracked selectively)
 data/raw_pdfs/*.pdf
+
+# Generated data (reproducible via `make pipeline`)
+data/extracted/
+data/chunks/
+data/summaries/
+
+# Logs
+*.log
+
+# Process PIDs
+.backend.pid
+.frontend.pid
+
+# Node
+node_modules/
+frontend/.next/
+
+# Claude
+.claude/

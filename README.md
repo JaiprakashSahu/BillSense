@@ -15,61 +15,85 @@ PDF Bill → PyMuPDF Extraction → Section-Aware Chunking
                           ↓                         ↓
                  Hierarchical              Embed chunks →
                  Summarization             Store in Chroma
-                 (Gemini)                        ↓
+                 (Groq LLM)                      ↓
                           ↓              RAG Retrieval on
                  Bill-Level              User Query
                  Summary                        ↓
                           ↓              LLM Answer with
                  Display in              Citations
-                 Streamlit                      ↓
+                 Next.js UI                    ↓
                                         Display in
-                                        Streamlit
+                                        Next.js UI
 ```
 
 ## Tech Stack
 
 | Component | Choice |
 |---|---|
-| LLM | Google Gemini 1.5 Pro (free tier) |
-| Embeddings | Gemini embedding-001 |
+| LLM | Groq (Qwen 3.8 27B) — free tier |
+| Embeddings | sentence-transformers (all-MiniLM-L6-v2) — local |
 | Vector DB | Chroma (local) |
-| Web UI | Streamlit |
+| Backend | FastAPI |
+| Frontend | Next.js + Tailwind CSS |
 | PDF Parsing | PyMuPDF |
 
-## Setup
+## Quick Start
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/JaiprakashSahu/BillSense.git
-   cd BillSense
-   ```
+```bash
+# 1. Clone and setup
+git clone https://github.com/JaiprakashSahu/BillSense.git
+cd BillSense
+chmod +x setup.sh && ./setup.sh
 
-2. Create a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+# 2. Add your API key
+echo "GROQ_API_KEY=your_key_here" > .env
 
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+# 3. Place PDFs in data/raw_pdfs/ and run full pipeline
+make pipeline
 
-4. Set up your API key:
-   ```bash
-   cp .env.example .env
-   # Edit .env and add your Gemini API key
-   ```
+# 4. Start the app
+make dev
+# Open http://localhost:3000
+```
 
-5. Get a free Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey)
+## Commands
 
-## Usage
+```bash
+make help          # Show all commands
+make setup         # Install all dependencies
+make pipeline      # Run full pipeline (extract → chunk → embed → summarize)
+make extract       # Stage 1 only: PDF → text
+make chunk         # Stage 2 only: text → sections
+make embed         # Stage 3 only: sections → Chroma
+make summarize     # Stage 4 only: sections → summaries
+make serve         # Start backend API (port 8000)
+make frontend      # Start frontend (port 3000)
+make dev           # Start both backend + frontend
+make clean         # Remove generated data (keeps PDFs)
+```
 
-1. Place bill PDFs in `data/raw_pdfs/`
-2. Run the Streamlit app:
-   ```bash
-   streamlit run app/streamlit_app.py
-   ```
+## Project Structure
+
+```
+BillSense/
+├── backend/api.py           # FastAPI backend
+├── frontend/                # Next.js frontend
+├── src/
+│   ├── ingestion.py         # PDF → text extraction
+│   ├── chunking.py          # Section-aware chunking
+│   ├── summarize.py         # Hierarchical summarization
+│   ├── embed.py             # Local embeddings + Chroma
+│   ├── retrieve.py          # RAG retrieval
+│   └── generate.py          # LLM answer generation
+├── data/
+│   ├── raw_pdfs/            # Input PDFs
+│   ├── extracted/           # Extracted text
+│   ├── chunks/              # Chunked sections
+│   └── summaries/           # Generated summaries
+├── run_pipeline.py          # Full pipeline script
+├── Makefile                 # All commands
+└── setup.sh                 # First-time setup
+```
 
 ## Sample Bills
 

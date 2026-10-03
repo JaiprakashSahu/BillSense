@@ -1,7 +1,9 @@
-google-generativeai
+groq
 chromadb
-streamlit
 pymupdf
+sentence-transformers
 tiktoken
 tqdm
 python-dotenv
+fastapi
+uvicorn
