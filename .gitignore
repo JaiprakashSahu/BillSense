@@ -22,13 +22,14 @@ chroma_db/
 .DS_Store
 Thumbs.db
 
-# Data (large PDFs - keep tracked selectively)
-data/raw_pdfs/*.pdf
+# Large PDFs (download via pipeline)
+# data/raw_pdfs/*.pdf
 
 # Generated data (reproducible via `make pipeline`)
-data/extracted/
-data/chunks/
-data/summaries/
+# Tracked for now so second dev can see the output format
+# data/extracted/
+# data/chunks/
+# data/summaries/
 
 # Logs
 *.log

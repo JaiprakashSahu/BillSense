@@ -1,0 +1,877 @@
+
+=== PAGE 1 ===
+1
+THE BANKING REGULATION (AMENDMENT) BILL, 2020
+A
+BILL
+further to amend the Banking Regulation Act, 1949.
+BE it enacted by Parliament in the Seventy-first Year of the Republic of India as
+follows:—
+1. (1) This Act may be called the Banking Regulation (Amendment) Act, 2020.
+(2) It shall be deemed to have come into force on the 26th day of June, 2020, except
+section 4, which, in so far as it relates to––
+(i) primary co-operative banks, be deemed to have come into force on the 29th day
+of June, 2020;
+(ii) state co-operative banks and central co-operative banks, come into force on
+such date as the Central Government may by notification in the Official Gazette, appoint:
+Provided that different dates may be appointed for state co-operative banks and
+central co-operative banks and any reference in any such provision to the
+Short title and
+commencement.
+Bill No. 114 of   2020
+As INTRODUCED IN LOK SABHA
+5
+10
+
+=== PAGE 2 ===
+2
+commencement of this Act shall be construed as a reference to the coming into force of
+that provision.
+2. In the Banking Regulation Act, 1949 (hereinafter referred to as the principal Act), for
+section 3, the following section shall be substituted, namely:—
+“3. Notwithstanding anything contained in the National Bank for Agriculture
+and Rural Development Act, 1981, this Act shall not apply to––
+(a) a primary agricultural credit society; or
+(b) a co-operative society whose primary object and principal business is
+providing of long-term finance for agricultural development,
+if such society does not use as part of its name, or in connection with its business, the
+words “bank”, “banker” or “banking” and does not act as drawee of cheques.”.
+3. In section 45 of the principal Act,—
+(i) in the marginal heading, for the word “reconstitution”, the word
+“reconstruction” shall be substituted;
+(ii) in sub-section (3), after the words “other creditors”, the words “or grant any
+loans or advances or make investments in any credit instruments” shall be inserted;
+(iii) in sub-section (4), after the words “During the period of moratorium”, the
+words “or at any other time” shall be inserted;
+(iv) in sub-section (5),  in clauses (e), (i) and (j), for the words “date of the order
+of moratorium”, the words “reconstruction or amalgamation” shall be substituted;
+(v) in sub-section (6), in clause (a), for the word “amalgamation”, the words
+“reconstruction or amalgamation” shall be substituted;
+(vi) in sub-section (15), the words “or a subsidiary bank” shall be omitted.
+4. In section 56 of the principal Act,—
+(A) in the opening portion, for the words “The provisions of this Act, as in force
+for the time being,”, the words “Notwithstanding anything contained in any other law
+for the time being in force, the provisions of this Act” shall be substituted;
+(B) in clause (a), after  sub-clause (ii), the following sub-clauses shall be inserted,
+namely:—
+‘(iii) references to “memorandum of association” or “articles of
+association” shall be construed as references to bye-laws;
+(iv) references to the provisions of the Companies Act, 1956, except in
+Part III and Part IIIA, shall be construed as references to the corresponding
+provisions, if any, of the  law under which a co-operative bank is registered;
+(v) references to “Registrar” or “Registrar of Companies” shall be construed
+as references to “Central Registrar” or “Registrar of Co-operative Societies”, as
+the case may be, under the law under which a co-operative bank is registered;’;
+(C) clause (d) shall be omitted;
+(D) in clause (e), sub-clauses (i) and (iii) shall be omitted;
+(E)  in clause (f), in section 7 as so substituted, in sub-section (2),—
+(I) in clause (b), the words “or co-operative land mortgage banks” shall be
+omitted;
+Substitution
+of new
+section for
+section 3.
+10 of 1949.
+Act not to
+apply to
+certain co-
+operative
+societies.
+61 of 1981.
+Amendment
+of section 45.
+Amendment
+of section 56.
+1 of 1956.
+5
+10
+15
+25
+20
+30
+35
+40
+
+=== PAGE 3 ===
+3
+(II) in clause (c), in sub-clause (ii), the words “or a co-operative land
+mortgage bank” shall be omitted;
+(F) clauses (fi), (fii) and (g) shall be omitted;
+(G) for clause (i), the following clause shall be substituted, namely:—
+‘(i) for section 12, the following section shall be substituted, namely:—
+“12. (1) A co-operative bank may, with the prior approval of the
+Reserve Bank, issue, by way of public issue or private placement,—
+(i) equity shares or preference shares or special shares, on
+face value or at premium; and
+(ii) unsecured debentures or bonds or other like securities
+with initial or original maturity of not less than ten years,
+to any member of such co-operative bank or any other person residing
+within its area of operation, subject to such conditions and ceiling, limit or
+restriction on its issue or subscription or transfer, as may be specified by
+the Reserve Bank in this behalf.
+(2) Save as otherwise provided in this Act,—
+(i) no person shall be entitled to demand payment towards
+surrender of shares issued to him by a co-operative bank; and
+(ii) a co-operative bank shall not withdraw or reduce its share
+capital, except to the extent and subject to such conditions as the
+Reserve Bank may specify in this behalf.”;’;
+(H) clauses (l), (n) and (p) shall be omitted;
+(I) in clause (q), sub-clauses (ii) and (iv) shall be omitted;
+ (J) clauses (r), (ria) and (sa) shall be omitted;
+(K) in clause (t), sub-clause (i) shall be omitted;
+(L)  clauses (u), (v), (x), (y), (z) and (za) shall be omitted;
+(M)  in clause (zaa),—
+(a) in section 36AAA as so inserted,—
+(i) for the words “multi-State co-operative bank”, wherever they
+occur, the words “co-operative bank” shall be substituted;
+(ii) in sub-section (1), the following proviso shall be inserted,
+namely:—
+“Provided that in the case of a co-operative bank registered
+with the Registrar of Co-operative Societies of a State, the Reserve
+Bank shall issue such order in consultation with the concerned
+State Government seeking its comments, if any, within such period
+as the Reserve Bank may specify.”;
+(iii) after sub-section (9), the following sub-section shall be inserted,
+namely:—
+“(10) The provisions of section 36ACA shall not apply to a
+co-operative bank.”;
+(b) section 36AAB as so inserted shall be omitted;
+(N) for clause (zb), the following clause shall be substituted, namely:—
+“(zb) Part IIC shall be omitted;”;
+Issue and
+regulation of
+paid-up share
+capital and
+securities by
+co-operative
+banks.
+5
+10
+15
+25
+20
+30
+35
+40
+
+=== PAGE 4 ===
+4
+(O) in clause (zc), sub-clause (i) shall be omitted;
+(P) clauses (zd) and (zf) shall be omitted;
+(Q)  for clause (zg), the following clause shall be substituted, namely:—
+‘(zg) in section 49B, references to “Central Government” shall be construed
+as references to “Central Registrar” or “Registrar of Co-operative Societies”, as
+the case may be, under the law under which a co-operative bank is registered;’;
+(R) clause  (zh) shall be omitted;
+(S) for clause (zj), the following clause shall be substituted, namely:—
+‘(zj) after section 53, the following section shall be inserted, namely:—
+“53A. Notwithstanding anything contained in any other provisions
+of this Act, the Reserve Bank may, from time to time, on being satisfied that
+it is necessary so to do, declare, by notification in the Official Gazette, that
+the provisions of item (iii) of clause (b) of sub-section (1) and
+sub-section (2), of section 10, clause (a) of sub-section (2) of section 10A,
+sub-section (1A) of section 10B and clause (b) of sub-section (1) of
+section 35B of this Act shall not apply to a co-operative bank or class of
+co-operative banks, either generally or for such period as may be specified
+therein, subject to such conditions, limitations or restrictions as it may
+think fit to impose.”;’.
+5. (1) The Banking Regulation (Amendment) Ordinance, 2020 is hereby repealed.
+ (2) Notwithstanding such repeal, anything done or any action taken under the Banking
+Regulation Act, 1949, as amended by the said Ordinance, shall be deemed to have been done
+or taken under the corresponding provisions of the said Act as amended by this Act.
+Powers to
+exempt
+co-operative
+banks in
+certain cases.
+Repeal and
+savings.
+Ord. 12 of
+2020.
+10 of 1949.
+5
+10
+15
+20
+
+=== PAGE 5 ===
+STATEMENT  OF   OBJECTS   AND   REASONS
+The Banking Regulation Act, 1949 was enacted to consolidate and amend the law
+relating to banking.  Section 3 of the said Act provides that the Act shall not apply to certain
+co-operative societies, except in the manner and to the extent specified therein. Section 45
+empowers the Reserve Bank of India for suspension of business by a banking company and
+to prepare a scheme of reconstruction or amalgamation during the order of moratorium.
+Part V thereof provides for the application of the Banking Regulation Act, 1949 to co-operative
+banks, subject to certain modifications specified in section 56.
+2. Certain amendments were considered necessary in the said Act to provide for better
+management and proper regulation of co-operative banks and to ensure that the affairs of the
+co-operative banks are conducted in a manner that protects the interests of the depositors,
+by increasing professionalism, enabling access to capital, improving governance and ensuring
+sound banking through the Reserve Bank of India. Accordingly, the Banking Regulation
+(Amendment) Bill, 2020 was introduced in Lok Sabha on the 3rd March, 2020, but the same
+could not be passed.
+3.  Further amendments were proposed to be made in section 45 of the Act to enable the
+Reserve Bank of India to make a scheme to protect the interests of the public, the banking
+system, depositors or to secure the banking company's proper management, without first
+making an order of moratorium so as to avoid disruptions in the financial system.
+4. As the economic situation arising from the COVID-19 pandemic had increased the
+stress in both co-operative banks and banking companies, there was an immediate need for
+legislation in this regard. As Parliament was not in session, the Banking Regulation
+(Amendment) Ordinance, 2020 was promulgated by the President of India on the 26th day of
+June, 2020 under clause (1) of article 123 of the Constitution.
+5. The Banking Regulation (Amendment) Bill, 2020 which seeks to replace the Banking
+Regulation (Amendment) Ordinance, 2020 (Ord. 12 of 2020) provides for the following,
+namely:—
+(i) substitution of section 3 to provide that  the Act  shall not apply to—
+(a) a primary agricultural credit society; or
+(b) a co-operative society whose primary object and principal business is
+providing of long term finance for agricultural development,
+if such society does not use as part of its name, or in connection with its business, the
+words "bank", "banker" or "banking" and does not act as drawee of cheques;
+(ii) amendment of  section 45 to address the potential disruptions in the financial
+system by providing  for the Reserve Bank of India to prepare a scheme for the
+reconstruction or amalgamation of the banking company without the necessity of first
+making an order of moratorium;
+(iii) amendment of section 56 to provide that notwithstanding anything contained
+in any other law for the time being in force, the provisions of the Act shall apply to
+co-operative societies, subject to the modifications specified therein.
+6. The Bill seeks to replace the aforesaid Ordinance.
+NEW DELHI;
+NIRMALA SITHARAMAN.
+The  3rd September, 2020.
+5
+
+=== PAGE 6 ===
+ANNEXURE
+EXTRACTS FROM THE BANKING REGULATION ACT, 1949
+(10 OF 1949)
+* 
+* 
+* 
+* 
+*
+3. Nothing in this Act shall apply to—
+(a) a primary agricultural credit society;
+(b) a co-operative land mortgage bank; and
+(c) any other co-operative society, except in the manner and to the extent specified
+in Part V.
+* 
+* 
+* 
+* 
+*
+45. (1) * 
+* 
+* 
+* 
+*
+(3) Except as otherwise provided by any directions given by the Central Government
+in the order made by it under sub-section (2) or at any time thereafter, the banking company
+shall not during the period of moratorium make any payment to any depositors or discharge
+any liabilities or obligations to any other creditors.
+(4) During the period of moratorium, if the Reserve Bank is satisfied that—
+(a) in the public interest; or
+(b) in the interests of the depositors; or
+(c) in order to secure the proper management of the banking company; or
+(d) in the interests of the banking system of the country as a whole,
+it is necessary so to do, the Reserve Bank may prepare a scheme—
+(i) for the reconstruction of the banking company, or
+(ii) for the amalgamation of the banking company with any other banking
+institution (in this section referred to as “the transferee bank”).
+(5) The scheme aforesaid may contain provisions for all or any of the following matters,
+namely:—
+* 
+* 
+* 
+* 
+*
+(e) subject to the provisions of the scheme, the continuation by or against the
+banking company on its reconstruction or, as the case may be, the transferee bank, of
+any actions or proceedings pending against the banking company immediately before
+the date of the order of moratorium;
+* 
+* 
+* 
+* 
+*
+(i) the continuance of the services of all the employees of the banking company
+(excepting such of them as not being workmen within the meaning of the Industrial
+Disputes Act, 1947 are specifically mentioned in the scheme) in the banking company
+itself on its reconstruction or, as the case may be, in the transferee bank at the same
+remuneration and on the same terms and conditions of service, which they were getting
+or, as the case may be, by which they were being governed, immediately before the
+date of the order of moratorium:
+6
+Act to apply
+to co-
+operative
+societies in
+certain cases.
+Power of
+Reserve Bank
+to apply to
+Central
+Government
+for
+suspension of
+business by a
+banking
+company and
+to prepare
+scheme of
+reconstitution
+or
+amalgamation.
+14 of 1947.
+
+=== PAGE 7 ===
+7
+Provided that the scheme shall contain a provision that—
+(i) the banking company shall pay or grant not later than the expiry of the
+period of three years from the date on which the scheme is sanctioned by the
+Central Government, to the said employees the same remuneration and the same
+terms and conditions of service as are, at the time of such payment or grant,
+applicable to employees of corresponding rank or status of a comparable banking
+company to be determined for this purpose by the Reserve Bank (whose
+determination in this respect shall be final);
+(ii) the transferee bank shall pay or grant not later than the expiry of the
+aforesaid period of three years, to the said employees the same remuneration
+and the same terms and conditions of service as are, at the time of such payment
+or grant, applicable to the other employees of corresponding rank or status of
+the transferee bank subject to the qualifications and experience of the said
+employees being the same as or equivalent to those of such other employees of
+the transferee bank:
+Provided further that if in any case under clause (ii) of the first proviso
+any doubt or difference arises as to whether the qualification and experience
+of any of the said employees are the same as or equivalent to the qualifications
+and experience of the other employees of corresponding rank or status of
+the transferee bank, the doubt or difference shall be referred, before the
+expiry of a period of three years from the date of the payment or grant
+mentioned in that clause, to the Reserve Bank whose decision thereon shall
+be final;
+(j) notwithstanding anything contained in clause (i) where any of the employees
+of the banking company not being workmen within the meaning of the Industrial
+Disputes Act, 1947 are specifically mentioned in the scheme under clause (i), or
+where any employees of the banking company have by notice in writing given to the
+banking company or, as the case may be, the transferee bank at any time before the
+expiry of the one month next following the date on which the scheme is sanctioned
+by the Central Government, intimated their intention of not becoming employees of
+the banking company on its reconstruction or, as the case may be, of the transferee
+bank, the payment to such employees of compensation if any, to which they are
+entitled under the Industrial Disputes Act, 1947, and such pension, gratuity,  provident
+fund and other retirement benefits ordinarily admissible to them under the rules or
+authorisations of the banking company immediately before the date of the order of
+moratorium;
+* 
+* 
+* 
+* 
+*
+(6) (a) A copy of the scheme prepared by the Reserve Bank shall be sent in draft to the
+banking company and also to the transferee bank and any other banking company concerned
+in the amalgamation, for suggestions and objections, if any, within such period as the Reserve
+Bank may specify for this purpose.
+* 
+* 
+* 
+* 
+*
+(15) In this section, “banking institution” means any banking company and includes
+the State Bank of India or a subsidiary bank or a corresponding new bank.
+Explanation.—References in this section to the terms and conditions of service of as
+applicable to an employee shall not be construed as extending to the rank and status of such
+employee.
+* 
+* 
+* 
+* 
+*
+14 of 1947.
+
+=== PAGE 8 ===
+8
+PART V
+APPLICATION  OF  THE  ACT  TO  CO-OPERATIVE  BANKS
+56. The provisions of this Act, as in force for the time being, shall apply to, or in
+relation to, co-operative societies as they apply to, or in relation to, banking companies
+subject to the following modifications, namely:—
+(a) throughout this Act, unless the context otherwise requires,—
+* 
+* 
+* 
+* 
+*
+(ii) references to “commencement of this Act” shall be construed as
+references to commencement of the Banking Laws (Application to Co-operative
+Societies) Act, 1965;
+* 
+* 
+* 
+* 
+*
+(d) for section 5A, the following section shall be substituted, namely:—
+“5A. (1) The provisions of this Act shall have effect, notwithstanding
+anything to the contrary contained in the bye-laws of a co-operative society, or
+in any agreement executed by it, or in any resolution passed by it in general
+meeting, or by its Board of directors or other body entrusted with the management
+of its affairs, whether the same be registered, executed or passed, as the case
+may be, before or after the commencement of the Banking Laws (Application to
+Co-operative Societies) Act, 1965.
+(2) Any provision contained in the bye-laws, agreement or resolution
+aforesaid shall, to the extent to which it is repugnant to the provisions of this
+Act, become or be void, as the case may be.”;
+(e) in section 6, in sub-section (1),—
+(i) in clause (b), the words “,but excluding the business of a managing
+agent or secretary and treasurer of a company” shall be omitted;
+* 
+* 
+* 
+* 
+*
+(iii) in clause (m), after the word “company”, the words “or co-operative
+society” shall be inserted;
+(f) for section 7, the following section shall be substituted, namely:—
+7. (1) No co-operative society other than a co-operative bank shall use as
+part of its name or in connection with its business any of the words “bank”,
+“banker” or “banking”, and no co-operative society shall carry on the business
+of banking in India unless it uses as part of its name at least one of such words.
+(2) Nothing in this section shall apply to—
+* 
+* 
+* 
+* 
+*
+(b) a co-operative society formed for the protection of the mutual interest
+of co-operative banks or co-operative land mortgage banks, or
+(c) any co-operative society, not being a primary credit society, formed by
+the employees of—
+* 
+* 
+* 
+* 
+*
+(ii) a co-operative bank or a primary credit society or a co-operative
+land mortgage bank, insofar as the word “bank”, “banker” or “banking”
+appears as part of the name of the employer bank, or as the case may be, of
+the bank, whose subsidiary the employer bank is;
+Act to apply
+to co-
+operative
+societies
+subject to
+modifications.
+23 of 1965.
+23 of 1965.
+Act to
+override bye-
+laws, etc.
+Use of words
+“bank”,
+“banker” or
+“banking”.
+
+=== PAGE 9 ===
+9
+(fi) in section 8, for the proviso, the following proviso shall be substituted,
+namely:—
+“Provided that this section shall not apply—
+(a) to any such business as aforesaid which was in the course of
+being transacted on the commencement of clause (iii) of section 42 of
+the Banking Laws (Amendment) Act, 1983, so, however, that the said
+business shall be completed before the expiry of one year from such
+commencement; or
+(b) to any business as is specified in pursuance of clause (o) of
+sub-section (1) of section 6;”;
+(fii) in section 9, for the second proviso, the following provisos shall be
+substituted, namely:—
+“Provided further that in the case of a primary credit society which
+becomes a primary co-operative bank after the commencement of clause (iii) of
+section 42 of the Banking Laws (Amendment) Act, 1983, the period of seven
+years shall commence from the day it so becomes a primary co-operative bank:
+Provided also that the Reserve Bank may, in any particular case, extend
+the aforesaid period of seven years by such period as it may consider necessary
+where it is satisfied that such extension would be in the interests of the
+depositors of the co-operative bank;
+(g) sections 10, 10A, 10B, 10BB, 10C and 10D shall be omitted;
+* 
+* 
+* 
+* 
+*
+(i) sections 12, 12A, 13 and 15 to 17 shall be omitted;
+* 
+* 
+* 
+* 
+*
+(l) for section 20 of the principal Act, the following section shall be substituted,
+namely:—
+“20. Restriction on loans and advances.—(1) No co-operative bank
+shall—
+(a) make any loans or advances on the security of its own shares; or
+(b) grant unsecured loans or advances—
+(i) to any of its directors; or
+(ii) to firms or private companies in which any of its directors
+is interested as partner or managing agent or guarantor or to
+individuals in cases where any of its directors is a guarantor; or
+(iii) to any company in which the chairman of the Board of
+directors of the co-operative bank (where the appointment of a
+chairman is for a fixed term) is interested as its managing agent, or
+where there is no managing agent, as its chairman or managing
+director:
+1 of 1984.
+1 of 1984.
+
+=== PAGE 10 ===
+10
+Provided that nothing in clause (b) shall apply to the grant of
+unsecured loans or advances—
+(a) made by a co-operative bank—
+(i) against bills for supplies or services made or
+rendered to Government or bills of exchange arising out
+of bona fide commercial or trade transactions, or
+(ii) in respect whereof trust-receipts are furnished
+to the co-operative bank;
+(b) made by a primary co-operative bank to any of its
+directors or to any other person within such limits and on
+such terms and conditions as may be approved by the Reserve
+Bank in this behalf.
+(2) Every co-operative bank shall, before the close of the month succeeding
+that to which the return relates, submit to the Reserve Bank a return in the
+prescribed form and manner showing all unsecured loans and advances granted
+by it to companies in cases other than those in which the co-operative bank is
+prohibited under sub-section (1) to make unsecured loans and advances in
+which any of its directors is interested as director or managing agent or guarantor.
+(3) If, on examination of any return submitted under sub-section (2), it
+appears to the Reserve Bank that any loans or advances referred to in that
+sub-section are being granted to the detriment of the interests of the depositors
+of the co-operative bank, the Reserve Bank may, by order in writing, prohibit the
+co-operative bank from granting any such further loans or advances or impose
+such restrictions on the grant thereof as it thinks fit, and may by like order direct
+the co-operative bank to secure the re-payment of such loan or advance within
+such time as may be specified in the order.
+* 
+* 
+* 
+* 
+*
+(n) in section 21, in sub-section (2), in clauses (c) and (d), for the words “any one
+company, firm, association of persons or individual,” the words “any one party” shall
+be substituted;
+* 
+* 
+* 
+* 
+*
+(p) in section 23,—
+(i) for sub-section (1), the following sub-section shall be substituted,
+namely:—
+“(1) Without obtaining the prior permission of the Reserve Bank, no
+co-operative bank shall open a new place of business or change otherwise
+than within the same city, town or village, the location of an existing place
+of business:
+Provided that nothing in this sub-section shall apply to—
+(a) the opening for a period not exceeding one month of a
+temporary place of business within a city, town or village or the
+environs thereof within which the co-operative bank already has a
+place of business, for the purpose of affording banking facilities to
+the public on the occasion of an exhibition, a conference or a mela or
+any other like occasion;
+(b) the opening or changing the location of branches by a
+central co-operative bank within the area of its operation.”;
+
+=== PAGE 11 ===
+11
+(ii) after sub-section (4), the following sub-section shall be inserted,
+namely:—
+“(4A) Any co-operative bank other than a primary co-operative bank
+requiring the permission of the Reserve Bank under this section shall
+forward its application to the Reserve Bank through the National Bank
+which shall give its comments on the merits of the application and send it
+to the Reserve Bank:
+Provided that the co-operative bank shall also send an advance
+copy of the application directly to the Reserve Bank.”.
+(q) in section 24,—
+* 
+* 
+* 
+* 
+*
+(ii) for sub-section (2A), the following sub-section shall be substituted,
+namely:—
+“(2A) A scheduled co-operative bank, in addition to the average
+daily balance which it is, or may be, required to maintain under section 42
+of the Reserve Bank of India Act, 1934 and every other co-operative bank,
+in addition to the cash reserve which it is required to maintain under
+section 18, shall maintain in India, assets, the value of which shall not be
+less than such percentage not exceeding forty per cent. of the total of its
+demand and time liabilities in India as on last Friday of the second preceding
+fortnight as the Reserve Bank may, by notification in the Official Gazette,
+specify from time to time and such assets shall be maintained in such form
+and manner, as may be specified in such notification.”;
+* 
+* 
+* 
+* 
+*
+(iv) in sub-section (6), in clause (a), for the words “fourteen days”, the
+words “thirty days” shall be substituted.”.
+* 
+* 
+* 
+* 
+*
+(r) section 25 shall be omitted.
+* 
+* 
+* 
+* 
+*
+(ria) in section 26A, for the words “banking companies”, the words
+“co-operative Bank” shall be substituted;
+ 
+* 
+* 
+* 
+* 
+*
+(sa) for section 30, the following section shall be substituted, namely:—
+“30. (1) Without prejudice to anything contained in any other law
+for the time being in force, where the Reserve Bank is satisfied that it is
+necessary in the public interest or in the interest of the co-operative bank
+or its depositors so to do, it may at any time by general or special order
+direct that an additional audit of the co-operative bank accounts, for any
+such transactions or class of transactions or for such period or periods as
+may be specified in the order, shall be conducted and may by the same or
+a different order appoint a person duly qualified under any law for the time
+being in force to be an auditor of companies to conduct such audit, and
+the auditor shall comply with such directions and make a report of such
+audit to the Reserve Bank and forward a copy thereof to the co-operative
+bank.
+(2) The expenses of, or incidental to, the additional audit specified
+in the order made by the Reserve Bank shall be borne by the co-operative
+bank.
+2 of 1934.
+Audit.
+
+=== PAGE 12 ===
+12
+(3) The auditor referred to in sub-section (1) shall have such powers,
+exercise such functions vested in and discharge the duties and be subject
+to the liabilities and penalties imposed on auditors of companies by
+section 227 of the Companies Act, 1956 and also that of the auditors, if
+any, appointed by the law establishing, constituting or forming the
+co-operative bank to the extent the provisions of the Companies Act, 1956
+are not inconsistent with the provisions of such law.
+(4) In addition to the matters referred to in the order under
+sub-section (1) the auditor shall state in his report—
+(a) whether or not the information and explanation required
+by him have been found to be satisfactory;
+(b) whether or not the transactions of the co-operative bank
+which came to his notice have been within the powers of the
+co-operative bank;
+(c) whether or not the returns received from branch offices of
+the co-operative bank have been found adequate for the purpose of
+his audit;
+(d) whether the profit and loss accounts, shows a true balance
+or profit or loss for the period covered by such account;
+(e) any other matter which he considers should be;
+* 
+* 
+* 
+* 
+*
+(t) in section 31,—
+(i) for the words “within three months” and “of three months”,
+the words “within six months” and “of six months” shall,
+respectively, be substituted;
+* 
+* 
+* 
+* 
+*
+(u) sections 32 to 34 shall be omitted;
+(v) in section 34A, sub-section (3) shall be omitted;
+* 
+* 
+* 
+* 
+*
+(x) in section 35A, in sub-section (1), in clause (c), for the words
+“any banking company”, the words “the banking of business any
+co-operative bank” shall be substituted;
+(y) section 35B shall be omitted;
+(z) in section 36, in sub-section (1),—
+(a) clause (b) shall be omitted;
+(b) for clause (d), the following clause shall be
+substituted, namely:—
+“(d) at any time if it is satisfied that for the re-
+organisation or expansion of co-operative credit on
+sound lines it is necessary so to do, by an order in
+writing and on such terms and conditions as may be
+specified therein,—
+(i) depute one or more of its officers to
+watch the proceedings at any meeting of the
+Board of directors of the co- operative bank or of
+1 of 1956.
+
+=== PAGE 13 ===
+13
+any other body constituted by it and require the
+co-operative bank to give an opportunity to the
+officer so deputed to be heard at such matters as
+the officer may consider necessary or proper for
+the reorganisation and expansion of co- operative
+credit on sound lines, and also require such officer
+to send a report of such proceedings to the
+Reserve Bank;
+(ii) appoint one or more of its officers to
+observe the manner in which the affairs of the
+co-operative bank or its offices or branches are
+being conducted and make a report thereon;”.
+(za) in section 36A,—
+(i) for sub-section (1), the following sub-section
+shall be substituted, namely:—
+“(1) The provisions of section 11,
+section 18 and section 24 shall not apply to a
+co-operative bank which has been refused a
+licence under section 22 or whose licence has
+been cancelled under that section or which is or
+has been prohibited or precluded from accepting
+deposits by virtue of any order made under this
+Act or of any alteration made in its bye-laws.”;
+(ii) after sub-section (2), the following
+sub-section shall be inserted, namely:—
+“(3) Subject to the provisions of
+sub-sections (1) and (2), a co-operative society
+carrying on business as a primary co-operative
+bank at the commencement of the Banking Laws
+(Application to Co-operative Societies) Act, 1965
+or a co-operative society which becomes a primary
+co-operative bank after such commencement shall,
+notwithstanding that it does not at any time
+thereafter satisfy the requirements of the definition
+of primary co-operative bank in clause (ccv) of
+section 5 continue to be a primary co-operative
+bank within the meaning of this Act, and may,
+with the approval of the Reserve Bank and subject
+to such terms and conditions as the Reserve Bank
+may specify in that behalf, continue to carry on
+the business of banking.”;
+(zaa) after section 36AA of the principal Act, the following sections shall be
+inserted, namely:—
+“36AAA.—Supersession of Board of directors of a multi-State
+co-operative bank.—(1) Where the Reserve Bank is satisfied that in the public
+interest or for preventing the affairs of a multi-State co-operative bank being
+conducted in a manner detrimental to the interest of the depositors or of the
+multi-State co-operative bank or for securing the proper management of the
+multi-State co-operative bank, it is necessary so to do, the Reserve Bank may, for
+reasons to be recorded in writing, by order, supersede the Board of directors of
+such multi-State co-operative bank for a period not exceeding five years as may
+23 of 1965.
+
+=== PAGE 14 ===
+14
+be specified in the order, which may be extended from time to time, so, however,
+that total period shall not exceed five years.
+* 
+* 
+* 
+* 
+*
+(9) The Administrator appointed under sub-section (2) shall vacate office
+immediately after the Board of directors of the multi-State co-operative society
+has been constituted.
+36AAB.—Order of winding up of multi-State co-operative bank to be final
+in certain cases.—Where a multi-State co-operative bank, being an eligible
+co-operative bank, has been registered under section 13A of the Deposit
+Insurance and Credit Guarantee Corporation Act, 1961, as an insured bank, and
+subsequently—
+(a) in pursuance of a scheme prepared with the previous approval of
+the Reserve Bank under section 18 of the Multi-State Co-operative
+Societies Act, 2002, an order sanctioning a scheme of compromise and
+arrangement or reorganisation or reconstruction has been made; or
+(b) on requisition by the Reserve Bank, an order for winding up of
+the multi-State co-operative bank has been made under section 87 of the
+Multi-State Co-operative Societies Act, 2002; or
+(c) an order for the supersession of the Board and the
+appointment of an Administrator therefore has been made under section
+36AAA, such order for sanctioning the scheme of compromise and
+arrangement or reorganisation or reconstruction under clause (a) or
+the winding up of the multi-State co-operative bank under clause (b) or
+an order for the supersession of the Board and the appointment of an
+Administrator under clause (c) shall not be liable to be called in question
+in any manner.
+* 
+* 
+* 
+* 
+*
+(zb) Part IIA except sections 36AAA, 36AAB and 36AAC, Part IIC, Part III,
+except sub-sections (1), (2) and (3) of section 45, and Part IIIA except section 45W
+shall be omitted;
+(zc) in section 46,—
+(i) in sub-section (4), the word “or” occurring at the end of clause (i) and
+clause (ii) shall be omitted;
+* 
+* 
+* 
+* 
+*
+(zd) in section 47, the words, brackets, figures and letters “sub-section (5) of
+section 36AA or” shall be omitted;
+* 
+* 
+* 
+* 
+*
+(zf) in section 49A, for the proviso, the following proviso shall be substituted,
+namely:—
+“Provided that nothing contained in this section shall apply to—
+(a) a primary credit society,
+(b) any other co-operative society accepting such deposits at the
+commencement of the Banking Laws (Application to Co-operative
+Societies) Act, 1965, for a period of one year from the date of such
+commencement; and
+43 of 1961.
+39 of 2002.
+39 of 2002.
+23 of 1965.
+
+=== PAGE 15 ===
+15
+(c) any savings bank scheme run by the Government.”;
+* 
+* 
+* 
+* 
+*
+(zg) sections 49B and 49C shall be omitted;
+(zh) in section 50, the figures and letters “10, 12A, 16,”, “35B,” and “,43A” shall
+be omitted;
+* 
+* 
+* 
+* 
+*
+(zj) in section 52,—
+(i) in sub-section (2), the words, figures and letter “and the form in which
+the official liquidator may file lists of debtors to the Court having jurisdiction
+under Part III or Part IIIA and the particulars which such lists may contain” shall
+be omitted;
+(ii) sub-section (4) shall be omitted;
+* 
+* 
+* 
+* 
+*
+
+=== PAGE 16 ===
+LOK  SABHA
+————
+A
+BILL
+further to amend the Banking Regulation Act, 1949.
+————
+(Smt. Nirmala Sitharaman, Minister of  Finance)
+MGIPMRND—377LS(S3)—09-09-2020.
