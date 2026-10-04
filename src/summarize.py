@@ -121,9 +121,10 @@ def summarize_bill(section_summaries: list[str], bill_name: str) -> str:
         combined = "\n\n---\n\n".join(condensed_parts)
         print(f"    Condensed to {len(combined.split())} words")
 
-        # If still too large, do a second pass
-        if len(combined.split()) > 3000:
-            print(f"    Second condensing pass...")
+        # Keep condensing until under 3000 words
+        pass_num = 2
+        while len(combined.split()) > 3000:
+            print(f"    Condensing pass {pass_num} ({len(combined.split())} words)...")
             parts2 = combined.split("\n\n---\n\n")
             condensed2 = []
             for i in range(0, len(parts2), 5):
@@ -134,11 +135,18 @@ def summarize_bill(section_summaries: list[str], bill_name: str) -> str:
                         "role": "user",
                         "content": CONDENSE_PROMPT.format(summaries=batch)
                     }],
-                    max_tokens=512,
+                    max_tokens=256,
                 )
                 condensed2.append(response.choices[0].message.content)
             combined = "\n\n---\n\n".join(condensed2)
-            print(f"    Final: {len(combined.split())} words")
+            print(f"    → {len(combined.split())} words")
+            pass_num += 1
+            if pass_num > 5:
+                # Safety: truncate if still too large after 5 passes
+                words = combined.split()
+                combined = " ".join(words[:2500])
+                print(f"    Truncated to 2500 words")
+                break
 
     time.sleep(3)
     response = client.chat(
