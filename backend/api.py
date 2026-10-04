@@ -79,7 +79,7 @@ def get_bills_by_year() -> dict:
 class QueryRequest(BaseModel):
     query: str
     bill_id: str
-    top_k: int = 3
+    top_k: int = 5
 
 
 @app.get("/api/health")
@@ -162,23 +162,27 @@ async def stream_query(req: QueryRequest):
             from src.llm import get_client
 
             context = "\n\n---\n\n".join(
-                f"[Section: {c['section_header']}]\n{c['content'][:800]}"
+                f"[Section: {c['section_header']}]\n{c['content'][:1000]}"
                 for c in chunks
             )
 
-            prompt = f"""You are a legal research assistant. Answer the user's question using ONLY the
-provided context from an Indian bill. Cite the section number for each claim.
+            # Trim context to stay under ~5000 tokens
+            if len(context.split()) > 4000:
+                context = " ".join(context.split()[:4000])
 
-Context:
+            prompt = f"""You are a legal expert on Indian legislation. Answer the user's question about this bill using the provided context. Be thorough and helpful.
+
+Context from the bill:
 {context}
 
 User question: {req.query}
 
 Instructions:
-- Only use information from the context above
-- Cite section numbers like [Section X]
-- If context doesn't answer the question, say "The provided sections don't address this specifically."
-- Use plain language
+- Answer the question as completely as possible using the context
+- Cite section/clause numbers where available like [Section X] or [Clause X]
+- If the exact answer isn't in the context, use what IS available to give the most relevant and helpful response — explain related provisions, definitions, or framework from the context
+- Use plain, simple language a non-lawyer can understand
+- Structure your answer with bullet points or numbered lists where appropriate
 - Do not include any thinking or reasoning tags - just provide the answer directly
 
 Answer:"""
